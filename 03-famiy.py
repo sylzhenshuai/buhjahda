@@ -94,8 +94,15 @@ girls_given_words2 = [ \
         '倩雪','美琳','欢馨','优璇','雨嘉','娅楠','明美','诗涵','黛滢','嫦曦', \
         '静香','凌薇','雅静','雪丽','依娜','婉玗','书怡','诗茵','灵静','睿婕','婉婷'
     ]
+file1 = "名字.txt"
 
-for i in range(1,1000):
+f1 = open(file1, 'w')  # write 方式第一次写一行
+
+text2write = "---名字---\n"
+f1.write(text2write)
+f1.close()
+f1=open(file1,'a')#append方式读文件
+for i in range(1,100):
     one_name=random.choice(family_names)
     #print('\ndebug---now name is:%s'%(one_name))
 
@@ -113,6 +120,15 @@ for i in range(1,1000):
         else:
                 ggname=random.choice(girls_given_words2)
 
+
+
     #print('\ndebug---now name is:%s'%(ggname))
     fullname=one_name+' '+ggname
+    text2write = fullname+'\n'
+    f1.write(text2write)
+
     print('\n---final name is:%s'%(fullname))
+
+f1.write(text2write)
+
+f1.close()
